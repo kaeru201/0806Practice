@@ -1,3 +1,26 @@
+h2 {
+    font-size: 2.2rem;
+    /* text-decoration: underline;  文字への下線 */
+    border-bottom: 2px solid #f60;
+}
+
+a {
+    color: #07c;
+    text-decoration: none;
+    /* ホバーした時、どのくらいで状況が変わるのかの指定秒数 */
+    transition: .4s;
+}
+img{
+    border-radius: 8px;
+
+}
+
+/* マウスを上乗せしている最中のaのデザイン */
+a:hover {
+    color: #5af;
+
+}
+
 span {
     color: orange;
 }
@@ -25,6 +48,12 @@ img {
     padding-top: 60px;
     /* 余白計算を含み計算にする */
     box-sizing: border-box;
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
 }
 
@@ -35,12 +64,12 @@ img {
 }
 
 p {
-    color: white;
-    text-align: center;
+    /* 行間 */
+    line-height: 1.8;
 }
 
 .main-catch {
-    font-size: 48px;
+    font-size: 42px;
     font-weight: bold;
 }
 
@@ -58,17 +87,15 @@ p {
     border-radius: 8px;
 
     /* 性格をpやdivと同じに捻じ曲げる */
-    display: block;
+    display: inline-block;
     /*もともとはinline*/
     /* 中央揃え */
     text-align: center;
-    /* 幅を絞る */
-    width: 30%;
-    /* 外側の余白 */
+        /* 外側の余白 */
     /* margin-top: 20px;
     margin-right: auto;
     margin-left: auto; */
-    margin: 20px auto 0px;
+    margin-top: 20px ;
 
 }
 
@@ -79,33 +106,36 @@ header {
     /*要素の信仰方向に対して垂直方向を中央揃え*/
     align-items: center;
     padding: 10px 40px;
+    /* 影 */
+    box-shadow: 0 2px 5px #333;
 }
 
 ul {
     display: flex;
     list-style-type: none;
     /* flexの子要素の隙間を指定 */
-    gap: 10%;
+    gap: 10px;
 }
 
 .gallery {
     display: grid;
-    grid-template-columns:repeat(5,1fr);
-    grid-template-rows: repeat(4,1fr);
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
     gap: 30px;
+    padding-bottom: 80px;
 }
 
-.gallery img:first-child{
+.gallery img:first-child {
     grid-column: 1/4;
     grid-row: 1/5;
 }
 
-.gallery img:nth-child(2){
+.gallery img:nth-child(2) {
     grid-column: 4/6;
     grid-row: 3/5;
 }
 
-.gallery img:last-child{
+.gallery img:last-child {
     grid-column: 4/6;
     grid-row: 1/3;
 }
@@ -122,7 +152,7 @@ ul {
 /* 特徴セクション(display:grid */
 .features {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     text-align: center;
 }
@@ -130,14 +160,14 @@ ul {
 .feature-item img {
     width: 100%;
     aspect-ratio: 10/6;
-    height:auto;
+    height: auto;
     object-fit: cover;
 }
 
-.feature-item p{
+.feature-item p {
     color: black;
 }
-    
+
 
 
 /* 料金表(table) */
@@ -201,7 +231,7 @@ ul {
 }
 
 
-main{
+main {
     /* 色の種類は3種類 */
     /* カラーコード　＃からはじまる6桁 　赤２ケタ　緑２ケタ　青2ケタ<00~ff*/
     /* RGB値 　rgb()に指定する10進数が3つ 赤、緑、青の3つ指定　0~255*/
@@ -210,5 +240,82 @@ main{
     /* 光の三原色　赤成分・緑成分・青成分 */
 
     background-color: #f9f9f9;
-    background-color: rgb(240,240,240);
+    background-color: rgb(240, 240, 240);
 }
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: #fff;
+}
+
+footer ul {
+    justify-content: center;
+    gap: 40px;
+    margin-top: 10px;
+}
+
+footer a {
+    color: #fff;
+}
+
+/* --- レスポンシブ対応 (スマートフォン表示) --- */
+ @media (max-width: 768px) {
+     header {
+         flex-direction: column;
+         padding: 10px 20px;
+     }
+
+     header nav ul {
+         flex-direction: column;
+         margin-top: 10px;
+         width: 100%;
+         text-align: center;
+     }
+
+     header nav li {
+         margin: 5px 0;
+     }
+
+     .main-catch{
+        font-size: 42px;
+        line-height: 1.2;
+     }
+
+     h1 {
+         font-size: 2rem;
+     }
+
+     h2 {
+         font-size: 1.8rem;
+     }
+
+     .features {
+         grid-template-columns: 1fr;
+         /* 1列にする */
+     }
+
+     main {
+         width: 100%;
+     }
+
+     section {
+         padding: 40px 15px;
+     }
+
+     .gallery {
+         grid-template-columns: 1fr;
+         grid-template-rows: repeat(3, 300px);
+     }
+
+     .gallery img:first-child {
+         grid-column: 1/2;
+         grid-row: 1/2;
+     }
+
+     .gallery img:nth-child(2) {
+         grid-column: 1/2;
+         grid-row: 2/3;
+     }
+    }
